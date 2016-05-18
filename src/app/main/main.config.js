@@ -1,12 +1,12 @@
 
-function AppConfig($stateProvider, $urlRouterProvider, $locationProvider){
+function MainConfig($stateProvider, $urlRouterProvider, $locationProvider){
   
   $stateProvider
-    .state('app', {
+    .state('main', {
       url: '/',
-      template: '@@import _app.html',
+      template: '@@import _main.html',
       controllerAs: '$ctrl',
-      controller: 'AppCtrl'
+      controller: 'MainCtrl'
     });
 
   $urlRouterProvider.otherwise('/');
@@ -17,5 +17,5 @@ export default [
   '$stateProvider',
   '$urlRouterProvider',
   '$locationProvider',
-  AppConfig
+  MainConfig
 ]

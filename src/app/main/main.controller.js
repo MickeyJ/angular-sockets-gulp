@@ -1,22 +1,24 @@
+/** @namespace this */
+/** @namespace UserService.currentUser */
 
-class AppCtrl{
-  constructor($scope){
+class MainCtrl{
+  constructor($scope, UserService){
     this.socket = io();
 
-    this.user = 'Bob';
+    this.user = UserService.currentUser;
     this.messageList = [];
-    
+
     this.socket.on('data', (data) =>{
       this.messageList.push(data);
       $scope.$apply();
     });
-    
+
     $scope.$on('$destroy', (event) =>{
       this.socket.removeAllListeners();
     });
-    
+
   }
-  msgAll(){
+  sendMessage(){
     var allMsg = {
       user: this.user,
       message: this.message
@@ -26,4 +28,4 @@ class AppCtrl{
   }
 }
 
-export default ['$scope', AppCtrl]
+export default ['$scope', 'UserService', MainCtrl]
