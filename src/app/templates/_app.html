@@ -1,0 +1,22 @@
+<h1>Hello</h1>
+
+<form class="form-inline" ng-submit="$ctrl.msgAll()" >
+  <input
+    class="form-control"
+    type="text"
+    placeholder="Your Message"
+    ng-model="$ctrl.message"
+  />
+  <input
+    class="btn btn-info"
+    type="submit"
+    value="Send"
+  />
+</form >
+
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="msg in $ctrl.messageList">
+    <strong ng-bind="msg.user"></strong>:
+    <span ng-bind="msg.message"></span>
+  </li>
+</ul>

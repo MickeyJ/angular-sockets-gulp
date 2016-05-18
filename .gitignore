@@ -1,0 +1,4 @@
+node_modules
+public/bower_components
+public/main.css
+public/bundle.js
